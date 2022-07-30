@@ -28,14 +28,12 @@ class Solution {
         var numberSet = Set<Int>()
         
         nums.forEach { num in
-            if numberSet.contains(num) {
+            if !numberSet.insert(num).0 {
                 numberSet.remove(num)
-            } else {
-                numberSet.insert(num)
             }
         }
         
-        return numberSet.first!
+        return numberSet.removeFirst()
     }
 }
 

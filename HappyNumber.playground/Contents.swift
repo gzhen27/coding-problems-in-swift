@@ -42,27 +42,25 @@ class Solution {
             if !(numSet.insert(sum).0) {
                 return false
             }
-            sum = getSum(sum)
+            updateSum(&sum)
         }
         
         return true
     }
     
-    private func getSum(_ n: Int) -> Int {
-        var sum = 0
-        var num = n
+    private func updateSum(_ sum: inout Int) {
+        var num = sum
+        sum = 0
         
         while num > 0 {
-            let reminder = num % 10
+            let n = num % 10
             num = num / 10
-            sum += (reminder * reminder)
+            sum += (n * n)
         }
-        
-        return sum
     }
 }
 
-let num = 6
+let num = 19
 let s = Solution()
 let isHappyNumber = s.isHappy(num)
 print(isHappyNumber)

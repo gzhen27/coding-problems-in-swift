@@ -50,16 +50,19 @@ class Solution {
     
     private func getSum(_ n: Int) -> Int {
         var sum = 0
+        var num = n
         
-        for c in String(n) {
-            let cToNum = Int(String(c))!
-            sum += (cToNum * cToNum)
+        while num > 0 {
+            let reminder = num % 10
+            num = num / 10
+            sum += (reminder * reminder)
         }
+        
         return sum
     }
 }
 
-let num = 2
+let num = 6
 let s = Solution()
 let isHappyNumber = s.isHappy(num)
 print(isHappyNumber)

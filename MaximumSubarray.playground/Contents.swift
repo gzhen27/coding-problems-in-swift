@@ -26,10 +26,15 @@ import UIKit
 
 class Solution {
     func maxSubArray(_ nums: [Int]) -> Int {
-        /*
-         Thinking ... 
-         */
-        return 0
+        var currSum = nums[0]
+        var maxSum = currSum
+        
+        for i in 1..<nums.count {
+            currSum = max(currSum+nums[i], nums[i])
+            maxSum = max(maxSum, currSum)
+        }
+        
+        return maxSum
     }
 }
 
